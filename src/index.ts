@@ -1,6 +1,11 @@
 import { ApolloServer } from 'apollo-server';
 import { schema } from './schema';
 import { context } from './context';
+import dotenv from 'dotenv';
+
+dotenv.config(); // load in values from .env into environment
+
+console.log(typeof process.env.PGPASSWORD);
 
 context.pg_client.connect()
   .then(() => {
